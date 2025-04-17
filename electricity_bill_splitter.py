@@ -466,7 +466,7 @@ with col2:
                                      help="התשלום עבור ההספק המירבי")
     fixed_charges = st.number_input("תשלום משותף קבוע (₪)", min_value=0.0, format="%.2f", 
                                   help="התשלום הקבוע המופיע בחשבון")
-    other_charges = st.number_input("חיובים וזיכויים שונים משותפים (₪)", min_value=-1000.0, format="%.2f", 
+    other_charges = st.number_input("חיובים וזיכויים שונים משותפים (₪)", min_value=-1000.0, value=0.0, format="%.2f", 
                                   help="חיובים וזיכויים נוספים המופיעים בחשבון")
 
 # חישוב סך הכל חיובים
@@ -474,7 +474,7 @@ total_fixed_charges = fixed_charges + capacity_charges + other_charges
 subtotal_before_vat = consumption_charge + total_fixed_charges
 
 # חישוב מע"מ
-vat_rate = st.number_input("שיעור המע\"מ (%)", min_value=0.0, max_value=100.0, value=17.0, format="%.1f") / 100
+vat_rate = st.number_input("שיעור המע\"מ (%)", min_value=0.0, max_value=100.0, value=18.0, format="%.1f") / 100
 vat_amount = subtotal_before_vat * vat_rate
 
 # סך הכל לתשלום
